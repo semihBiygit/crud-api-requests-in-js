@@ -3,7 +3,7 @@ const studentList = [];
 const allCourses = ["JavaScript", "HTML", "CSS", "NodeJS", "ReactJS"];
 const courses = [];
 
-const createInstructorObject = (
+const createInstructor = (
   firstName,
   lastName,
   courses = [],
@@ -43,7 +43,7 @@ const createInstructorObject = (
   }
 };
 
-const createStudentObject = (
+const createStudent = (
   firstName,
   lastName,
   courses = [],
@@ -88,16 +88,21 @@ const createStudentObject = (
   }
 };
 
-createInstructorObject("Orkun", "Durmaz", allCourses);
-createInstructorObject("Gözde", "Saygili", allCourses[1] + "," + allCourses[3]);
-console.log("Student List = ",studentList);
-createStudentObject(
-  "Semih",
-  "Biygit",
-  ["CSS", "JavaScript"],
-  instructorList[0],
-  95
-);
-// createStudentObject("Semih", "Biygit", ["CSS"]["JavaScript"], instructorList[0], 95);
-// console.log(studentList);
-console.log("Instructor List = ",instructorList);
+createInstructor("Orkun", "Durmaz", allCourses);
+createInstructor("Gözde", "Saygili", allCourses[0] + "," + allCourses[3]);
+console.log("Student List = ", studentList);
+createStudent("Semih", "Biygit", ["CSS", "JavaScript"], instructorList[1], 95);
+// createStudent("Semih", "Biygit", ["CSS"]["JavaScript"], instructorList[0], 95);
+console.log(studentList);
+console.log("Instructor List = ", instructorList);
+
+const isInstructorTeaching = (instructor, course) => {
+  let isTeaching = false;
+  instructorList.forEach((instructor) => {
+    if (instructor.courses.includes(course)) {
+      isTeaching = true;
+    }
+  }),
+  console.log(isTeaching);
+}
+isInstructorTeaching("Orkun", "HTML");
